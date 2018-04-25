@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>StaffingSystem</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <servlet-name>all</servlet-name>
-    <servlet-class>com.dwl.BaseServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>all</servlet-name>
-    <url-pattern>/all</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>StaffingSystem</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>depttree</servlet-name>
+		<servlet-class>com.servlet.depttree.DeptTreeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>depttree</servlet-name>
+		<url-pattern>/depttree</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>navigation</servlet-name>
+		<servlet-class>com.servlet.navigation.NavigationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>navigation</servlet-name>
+		<url-pattern>/navigation</url-pattern>
+	</servlet-mapping>
 </web-app>
