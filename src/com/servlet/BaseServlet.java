@@ -20,14 +20,15 @@ public class BaseServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String methodname = request.getParameter("method");
+		System.out.println(methodname);
 		Class<?> cla = this.getClass();
 		try {
-			Method method = cla.getDeclaredMethod(methodname, HttpServletRequest.class, HttpServletResponse.class);
-			method.setAccessible(true);
-			String path = (String) method.invoke(this, request, response);
-			if (path != null && path!="") {
-				request.getRequestDispatcher(path).forward(request, response);
-			}
+			if (methodname == null || methodname == "") {
+			} else {
+				Method method = cla.getDeclaredMethod(methodname, HttpServletRequest.class, HttpServletResponse.class);
+				method.setAccessible(true);
+				method.invoke(this, request, response);
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -7,6 +7,8 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<!-- 部门树 -->
 	<servlet>
 		<servlet-name>depttree</servlet-name>
 		<servlet-class>com.servlet.depttree.DeptTreeServlet</servlet-class>
@@ -15,6 +17,7 @@
 		<servlet-name>depttree</servlet-name>
 		<url-pattern>/depttree</url-pattern>
 	</servlet-mapping>
+	<!-- 导航栏 -->
 	<servlet>
 		<servlet-name>navigation</servlet-name>
 		<servlet-class>com.servlet.navigation.NavigationServlet</servlet-class>
@@ -22,5 +25,23 @@
 	<servlet-mapping>
 		<servlet-name>navigation</servlet-name>
 		<url-pattern>/navigation</url-pattern>
+	</servlet-mapping>
+	<!-- 部门 -->
+	<servlet>
+		<servlet-name>dept</servlet-name>
+		<servlet-class>com.servlet.dept.DeptServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dept</servlet-name>
+		<url-pattern>/dept</url-pattern>
+	</servlet-mapping>
+	<!-- 岗位-->
+	<servlet>
+		<servlet-name>position</servlet-name>
+		<servlet-class>com.servlet.position.PositionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>position</servlet-name>
+		<url-pattern>/position</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -9,6 +9,18 @@
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+</script>
+<script type="text/javascript">
 	$(document)
 			.ready(
 					function() {
@@ -18,23 +30,23 @@
 							url : "navigation?method=loadLeftNavigation",
 							data : "",
 							async : false
-
 						}).responseText;
-
-						NavigationNodes = (new Function("return "
-								+ NavigationNodes))();
-
+						NavigationNodes=$.parseJSON(NavigationNodes);
+						
+						var NavigationNode=NavigationNodes[getQueryVariable("menu")];
+						
 						var navigation_html = "";
 
 						navigation_html = navigation_html
 								+ "<ul class=\"nav nav-pills nav-stacked\" style=\"min-width: 100px;\">";
-						for (var i = 0; i < NavigationNodes.length; i++) {
+						
+						$.each(NavigationNode, function(i, obj) {  
 							navigation_html = navigation_html
-									+ "<li class=\"dropdown\"><a target=\"main\" href=\""+NavigationNodes[i].url+"\" class=\"dropdown-toggle\"data-toggle=\"dropdown\">"
-									+ NavigationNodes[i].name + "</a></li>";
-
-						}
-						dhl_html = navigation_html + "</ul>";
+							+ "<li class=\"dropdown\"><a target=\"main\" href=\""+obj.url+"\" class=\"dropdown-toggle\">"
+							+ obj.name + "</a></li>"; 
+						});  
+						
+						navigation_html = navigation_html + "</ul>";
 						console.log(navigation_html);
 						$("#navigation").html(navigation_html);
 					});

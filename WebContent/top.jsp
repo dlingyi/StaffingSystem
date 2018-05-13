@@ -9,31 +9,26 @@
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
 						var NavigationNodes = $.ajax({
 							type : "POST",
 							scriptCharset : "utf-8",
 							url : "navigation?method=loadTopNavigation",
 							data : "",
 							async : false
-
 						}).responseText;
-
-						NavigationNodes = (new Function("return "
-								+ NavigationNodes))();
-
+						NavigationNodes=$.parseJSON(NavigationNodes);
 						var navigation_html = "";
 
 						navigation_html = navigation_html
 								+ "<ul class=\"nav navbar-nav\">";
-						for (var i = 0; i < NavigationNodes.length; i++) {
+						
+						$.each(NavigationNodes, function(i, obj) {  
 							navigation_html = navigation_html
-									+ "<li class=\"dropdown\"><a href=\""+NavigationNodes[i].url+"\" class=\"dropdown-toggle\"data-toggle=\"dropdown\">"
-									+ NavigationNodes[i].name + "</a></li>";
-
-						}
+							+ "<li class=\"dropdown\"><a target=\"left\" href=\""+obj.url+"\" class=\"dropdown-toggle\">"
+							+ obj.name + "</a></li>";
+						}); 
+						
 						dhl_html = navigation_html + "</ul>";
 						console.log(navigation_html);
 						$("#navigation").html(navigation_html);

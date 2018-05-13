@@ -5,8 +5,8 @@
 <frameset rows="72,*" frameborder="NO" border="0" framespacing="0">
 	<frame name="top" src="top.jsp" scrolling="NO" />
 	<frameset cols="140,*">
-		<frame name="left" src="left.jsp" scrolling='auto' />
-		<frame name="main" src="top.jsp" scrolling='auto' />
+		<frame name="left" src="" scrolling='auto' />
+		<frame name="main" src="welcome.html" scrolling='auto' />
 	</frameset>
 </frameset>
 
